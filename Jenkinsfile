@@ -57,8 +57,9 @@ pipeline {
         }
         stage ("Deploy to staging"){
             steps {
-                sh "docker run -d --rm -p 8090:8090 \
-                    --name calculator localhost:5000/juht/calculator"
+               /* sh "docker run -d --rm -p 8090:8090 \
+                    --name calculator localhost:5000/juht/calculator" */
+                  sh "docker-compose up -d"
             }
         }
         stage ("Acceptance Test"){
@@ -70,7 +71,8 @@ pipeline {
     }
     post {
         always {
-            sh "docker stop calculator"
+           /* sh "docker stop calculator"*/
+	      sh "docker-compose down"
         }
     }
 }
