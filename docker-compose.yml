@@ -1,8 +1,8 @@
 version: "3"
 services:
    calculator:
-     image: localost:5000/jaehyun/calculator:latest
+     image: localhost:5000/jaehyun/calculator:latest
      ports:
        - 8080
-     redis:
+   redis:
        image: redis:latest
